@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KronikAfro - Salão Masculino Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+        
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #fca311;
+            --light: #e5e5e5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: var(--light);
+            background-color: var(--primary);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+        }
+        
+        .logo span {
+            color: var(--light);
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .service-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .barber-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .barber-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .barber-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .form-control {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--light);
+            padding: 12px 15px;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(22, 33, 62, 0.9);
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-link {
+            color: var(--light);
+            margin: 0 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                margin: 15px 0;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+        
+        /* Pulse animation for CTA */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="logo">Kronik<span>Afro</span></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu flex" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#barbers" class="nav-link">Barbeiros</a></li>
+                <li><a href="#gallery" class="nav-link">Galeria</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="parallax" id="home" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');">
+        <div class="section-overlay"></div>
+        <div class="content">
+            <h1 class="logo fade-in">Kronik<span>Afro</span></h1>
+            <p class="text-xl mb-8 fade-in delay-1">O salão masculino premium para cortes afro e estilos modernos</p>
+            <div class="fade-in delay-2">
+                <a href="#contact" class="btn pulse">Agende Agora</a>
+                <a href="#services" class="btn btn-outline ml-4">Nossos Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-gradient-to-b from-primary to-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title fade-in">Sobre Nós</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in delay-1">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="KronikAfro Interior" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="fade-in delay-2">
+                    <h3 class="text-2xl font-bold mb-4">A Experiência KronikAfro</h3>
+                    <p class="mb-4">Fundado em 2015, o KronikAfro nasceu da paixão por cortes afro e estilos masculinos que valorizam a identidade e cultura negra. Nosso salão é mais que um espaço para cortes de cabelo - é um lugar de empoderamento e autoexpressão.</p>
+                    <p class="mb-6">Nossos barbeiros são especialistas em cortes afro, desde os clássicos até os mais modernos, sempre com atenção aos detalhes e usando os melhores produtos do mercado.</p>
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>Produtos premium</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>Ambiente exclusivo</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>Profissionais certificados</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>Atendimento personalizado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="parallax py-20" id="services" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+        <div class="section-overlay"></div>
+        <div class="content">
+            <div class="text-center mb-16">
+                <h2 class="section-title fade-in">Nossos Serviços</h2>
+                <p class="text-xl fade-in delay-1">Oferecemos uma variedade de serviços para cuidar do seu visual</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Corte Afro</h3>
+                    <p>Corte especializado para cabelos cacheados e crespos, valorizando o volume e a textura natural do seu cabelo.</p>
+                    <p class="mt-4 font-bold text-accent">A partir de R$ 80,00</p>
+                </div>
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Design de Barba</h3>
+                    <p>Modelagem e tratamento completo para sua barba, incluindo hidratação e finalização com produtos premium.</p>
+                    <p class="mt-4 font-bold text-accent">A partir de R$ 60,00</p>
+                </div>
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tratamento Capilar</h3>
+                    <p>Hidratação profunda e reconstrução para cabelos afro, mantendo a saúde e vitalidade dos seus fios.</p>
+                    <p class="mt-4 font-bold text-accent">A partir de R$ 120,00</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Colorização</h3>
+                    <p>Técnicas avançadas de coloração para cabelos afro, com produtos que preservam a saúde dos fios.</p>
+                    <p class="mt-4 font-bold text-accent">A partir de R$ 150,00</p>
+                </div>
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pacote Executivo</h3>
+                    <p>Corte, barba, limpeza de pele e massagem relaxante - tudo que você precisa para se destacar.</p>
+                    <p class="mt-4 font-bold text-accent">R$ 220,00</p>
+                </div>
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pacote Premium</h3>
+                    <p>Experiência completa com todos os nossos serviços premium em uma sessão relaxante e exclusiva.</p>
+                    <p class="mt-4 font-bold text-accent">R$ 350,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barbers Section -->
+    <section class="py-20 bg-gradient-to-b from-secondary to-primary" id="barbers">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title fade-in">Nossos Barbeiros</h2>
+                <p class="text-xl fade-in delay-1">Profissionais especializados em cortes afro e estilos masculinos</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="barber-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Barbeiro 1" class="barber-img">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Marcos Silva</h3>
+                        <p class="text-accent mb-4">Especialista em Cortes Afro</p>
+                        <p class="mb-4">Com 10 anos de experiência, Marcos domina técnicas tradicionais e modernas para valorizar a textura natural do cabelo afro.</p>
+                        <div class="flex justify-center">
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="barber-card fade-in delay-1">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Barbeiro 2" class="barber-img">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Ricardo Oliveira</h3>
+                        <p class="text-accent mb-4">Mestre em Design de Barba</p>
+                        <p class="mb-4">Ricardo transforma barbas com técnicas precisas de modelagem e cuidados especiais para manter a saúde dos fios faciais.</p>
+                        <div class="flex justify-center">
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="barber-card fade-in delay-2">
+                    <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Barbeiro 3" class="barber-img">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Carlos Mendes</h3>
+                        <p class="text-accent mb-4">Especialista em Colorização</p>
+                        <p class="mb-4">Carlos é referência em técnicas de coloração para cabelos afro, criando looks únicos que respeitam a saúde dos fios.</p>
+                        <div class="flex justify-center">
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="parallax py-20" id="gallery" style="background-image: url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');">
+        <div class="section-overlay"></div>
+        <div class="content">
+            <div class="text-center mb-16">
+                <h2 class="section-title fade-in">Nossa Galeria</h2>
+                <p class="text-xl fade-in delay-1">Alguns dos nossos trabalhos e momentos especiais</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Corte Afro 1" class="gallery-img">
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Corte Afro 2" class="gallery-img">
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <img src="https://images.unsplash.com/photo-1531384441138-2733e62e0919?ixlib=rb-4.0.3&ixid=M3wxMjA3f
+</html>

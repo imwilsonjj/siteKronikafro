@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kronikafro - Salão Afro Especializado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: #5E2B1E;
+            --secondary: #D4A373;
+            --accent: #E9C46A;
+            --light: #F8EDEB;
+            --dark: #1E1E1E;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border-bottom: 4px solid var(--secondary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235E2B1E' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .hair-type {
+            transition: all 0.3s ease;
+        }
+        
+        .hair-type:hover {
+            transform: scale(1.05);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo text-2xl md:text-3xl">
+                    KRO<span>NIK</span>AFRO
+                </div>
+                
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="nav-link active text-gray-800 hover:text-amber-800">Início</a></li>
+                        <li><a href="#services" class="nav-link text-gray-800 hover:text-amber-800">Serviços</a></li>
+                        <li><a href="#about" class="nav-link text-gray-800 hover:text-amber-800">Sobre</a></li>
+                        <li><a href="#team" class="nav-link text-gray-800 hover:text-amber-800">Equipe</a></li>
+                        <li><a href="#testimonials" class="nav-link text-gray-800 hover:text-amber-800">Depoimentos</a></li>
+                        <li><a href="#contact" class="nav-link text-gray-800 hover:text-amber-800">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <ul class="space-y-4">
+                    <li><a href="#home" class="block text-gray-800 hover:text-amber-800">Início</a></li>
+                    <li><a href="#services" class="block text-gray-800 hover:text-amber-800">Serviços</a></li>
+                    <li><a href="#about" class="block text-gray-800 hover:text-amber-800">Sobre</a></li>
+                    <li><a href="#team" class="block text-gray-800 hover:text-amber-800">Equipe</a></li>
+                    <li><a href="#testimonials" class="block text-gray-800 hover:text-amber-800">Depoimentos</a></li>
+                    <li><a href="#contact" class="block text-gray-800 hover:text-amber-800">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Celebrando a Beleza Afro</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">No Kronikafro, transformamos seu cabelo em uma obra de arte, honrando suas raízes e realçando sua beleza natural.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="btn-primary px-8 py-3 rounded-full font-bold">Agendar Horário</a>
+                <a href="#services" class="btn-secondary px-8 py-3 rounded-full font-bold">Nossos Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 pattern-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-900">Nossos Serviços</h2>
+                <p class="max-w-2xl mx-auto text-gray-700">Oferecemos tratamentos especializados para todos os tipos de cabelo afro, desde penteados tradicionais até técnicas modernas.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-amber-700 mb-4">
+                        <i class="fas fa-cut text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-amber-900">Cortes Especializados</h3>
+                    <p class="text-gray-700 mb-4">Cortes precisos que valorizam a estrutura do seu cabelo, desde os clássicos aos mais ousados.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Corte black power</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Corte fade</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Corte com navalha</li>
+                    </ul>
+                    <a href="#contact" class="inline-block btn-secondary px-6 py-2 rounded-full text-sm font-bold">Agendar</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-amber-700 mb-4">
+                        <i class="fas fa-spa text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-amber-900">Tratamentos Capilares</h3>
+                    <p class="text-gray-700 mb-4">Hidratação profunda e reconstrução para manter seu cabelo saudável e vibrante.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Hidratação intensiva</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Reconstrução capilar</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Terapia de queratina</li>
+                    </ul>
+                    <a href="#contact" class="inline-block btn-secondary px-6 py-2 rounded-full text-sm font-bold">Agendar</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-amber-700 mb-4">
+                        <i class="fas fa-rainbow text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-amber-900">Tranças e Penteados</h3>
+                    <p class="text-gray-700 mb-4">Tranças tradicionais e modernas, box braids, twists e muito mais para expressar seu estilo.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Box braids</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Tranças nagô</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-amber-600 mr-2"></i> Penteados afro</li>
+                    </ul>
+                    <a href="#contact" class="inline-block btn-secondary px-6 py-2 rounded-full text-sm font-bold">Agendar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sobre o Kronikafro" class="rounded-lg shadow-xl w-full">
+                        <div class="absolute -bottom-6 -right-6 bg-amber-800 text-white p-6 rounded-lg shadow-lg hidden md:block">
+                            <h4 class="font-bold text-xl mb-2">5+ Anos</h4>
+                            <p>de experiência</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-amber-900">Sobre o Kronikafro</h2>
+                    <p class="text-gray-700 mb-4">Fundado em 2018, o Kronikafro nasceu da paixão por celebrar e cuidar da beleza natural dos cabelos afro. Nosso salão é mais que um espaço de beleza - é um lugar de empoderamento e autoexpressão.</p>
+                    <p class="text-gray-700 mb-6">Nossa equipe é especializada em técnicas específicas para cabelos cacheados, crespos e ondulados, utilizando produtos naturais e métodos que preservam a saúde capilar.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-leaf text-amber-700"></i>
+                            </div>
+                            <span class="font-medium">Produtos Naturais</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-hand-holding-heart text-amber-700"></i>
+                            </div>
+                            <span class="font-medium">Atendimento Personalizado</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-award text-amber-700"></i>
+                            </div>
+                            <span class="font-medium">Profissionais Certificados</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-heart text-amber-700"></i>
+                            </div>
+                            <span class="font-medium">Amor pelo que Fazemos</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#team" class="inline-block btn-primary px-8 py-3 rounded-full font-bold">Conheça Nossa Equipe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hair Types Section -->
+    <section class="py-16 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-900">Tipos de Cabelo que Atendemos</h2>
+                <p class="max-w-2xl mx-auto text-gray-700">Cada cabelo é único e merece cuidados específicos. Veja os tipos que trabalhamos:</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="hair-type bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-circle-notch text-amber-700 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">3A - 3B</h3>
+                    <p class="text-sm text-gray-600">Cachos definidos e soltos</p>
+                </div>
+                
+                <div class="hair-type bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-ring text-amber-700 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">3C</h3>
+                    <p class="text-sm text-gray-600">Cachos apertados</p>
+                </div>
+                
+                <div class="hair-type bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-splotch text-amber-700 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">4A - 4B</h3>
+                    <p class="text-sm text-gray-600">Cachos muito apertados</p>
+                </div>
+                
+                <div class="hair-type bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-ellipsis-h text-amber-700 text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">4C</h3>
+                    <p class="text-sm text-gray-600">Crespo sem definição</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-900">Nossa Equipe</h2>
+                <p class="max-w-2xl mx-auto text-gray-700">Profissionais qualificados e apaixonados por cabelos afro</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Ana Beatriz" class="w-full h-80 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Ana Beatriz</h3>
+                            <p class="text-amber-300">Especialista em Tranças</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Com 8 anos de experiência, Ana domina técnicas de trançado africano e penteados tradicionais.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Carlos Eduardo" class="w-full h-80 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Carlos Eduardo</h3>
+                            <p class="text-amber-300">Barbeiro Especialista</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Mestre em cortes precisos e design de barba, trazendo estilo e personalidade para cada cliente.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Juliana Santos" class="w-full h-80 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Juliana Santos</h3>
+                            <p class="text-amber-300">Terapeuta Capilar</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Especialista em tratamentos para cabelos cacheados e crespos, com foco em saúde e beleza natural.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-amber-700 hover:text-amber-900"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-amber-900">O que Nossos Clientes Dizem</h2>
+                <p class="max-w-2xl mx-auto text-gray-700">Depoimentos de quem já experimentou nossos serviços</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api
+</html>
